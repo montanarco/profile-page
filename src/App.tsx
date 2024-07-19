@@ -9,8 +9,9 @@ import {
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 import particlesConfig from "./utils/particlesConfig";
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import './App.css';
 
-function App () {
+function App() {
   const [init, setInit] = useState(false);
 
   // this should be run only once per application lifetime
@@ -33,16 +34,19 @@ function App () {
   };
 
   const options: ISourceOptions = useMemo(
-    particlesConfig,[],);
+    particlesConfig, [],);
 
   if (init) {
     return (
-      <div>
-        <Particles
+      <div style={{ position: 'relative' }}>
+      <Particles
         id="tsparticles"
         particlesLoaded={particlesLoaded}
-        options={options}/>
-        <h1>Miguel Page</h1>
+        options={options}
+      />
+      <h1 className="app-header">
+        Miguels Profile
+      </h1>
       </div>
     );
   }
